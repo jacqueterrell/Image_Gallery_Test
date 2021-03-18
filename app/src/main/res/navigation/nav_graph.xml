@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph">
+
+    <fragment
+        android:id="@+id/Albums"
+        android:name="com.jacque.imagegallerytest.ui.albums.AlbumsFragment"
+        android:label="Albums"
+        tools:layout="@layout/albums_list_fragment"
+        >
+        <action
+            android:id="@+id/action_Album_to_ImageGallery"
+            app:destination="@id/ImageGallery"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/ImageGallery"
+        android:name="com.jacque.imagegallerytest.ui.imageGallery.ImageGalleryFragment"
+        android:label="Image Gallery"
+        tools:layout="@layout/image_gallery_fragment"
+        >
+        <action
+            android:id="@+id/action_ImageGallery_to_ZoomedImage"
+            app:destination="@id/ZoomedImage"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out"/>
+
+        <argument
+            android:name="albumName"
+            app:argType="string"
+            />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/ZoomedImage"
+        android:name="com.jacque.imagegallerytest.ui.zoomedImages.ZoomedImageFragment"
+        android:label="Zoomed Image"
+        tools:layout="@layout/zoomed_image_gallery_fragment"
+        />
+
+    <argument
+        android:name="imageList"
+        app:argType="string[]"
+        />
+
+</navigation>
