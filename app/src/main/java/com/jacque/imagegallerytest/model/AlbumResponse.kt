@@ -1,14 +1,20 @@
 package com.jacque.imagegallerytest.model
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
 data class AlbumResponse(
-    val id: String = "",
-    val title: String = "",
-    val tags: ArrayList<AlbumsDb> = ArrayList<AlbumsDb>()
+    val data: ArrayList<AlbumDb> = ArrayList()
 )
 
-data class AlbumsDb(
-    val name: String = "",
-    val display_name: String = "",
-    val followers: Int = 0,
-    val total_items: Int = 0
-)
+@Parcelize
+data class AlbumDb(
+    val id: String = "",
+    val title: String = "",
+    val images: ArrayList<ImageDb> = ArrayList()
+) : Parcelable
+
+@Parcelize
+data class ImageDb(
+    val link: String = "",
+) : Parcelable
