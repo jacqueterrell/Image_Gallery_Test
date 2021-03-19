@@ -1,23 +1,28 @@
 package com.jacque.imagegallerytest.di
 
 import com.jacque.imagegallerytest.network.ImgurApiEndpoints
+import com.jacque.imagegallerytest.ui.albums.AlbumsRepository
+import com.jacque.imagegallerytest.ui.albums.AlbumsViewModel
 import okhttp3.OkHttpClient
+import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import java.sql.Time
 import java.util.concurrent.TimeUnit
 
+/**
+ * Our Koin Module object
+ */
 object Modules {
 
     private const val BASE_URL = "https://api.imgur.com/3/gallery/"
 
     val repoModule = module {
-
+        single { AlbumsRepository(get()) }
     }
 
     val viewModelModule = module {
-
+        viewModel { AlbumsViewModel(get()) }
     }
 
     val networkModule = module {
