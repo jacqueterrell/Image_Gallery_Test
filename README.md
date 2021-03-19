@@ -8,5 +8,5 @@ The main purpose of this application is to use the imgur API to create a simple 
 - Navigation Components used for ... navigation
 - Single activity set up with multiple fragments
 - Other libraries used include 'Photoview' which handles the zoom/panning of the image, and Glide
-for add the image Urls to our ImageViews. 
+for adding the image Urls to our ImageViews. 
 
